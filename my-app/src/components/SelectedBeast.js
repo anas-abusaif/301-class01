@@ -15,14 +15,6 @@ class SelectedBeast extends react.Component {
         <Modal.Body>
 
           <Container>
-            {/* <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={this.props.animal.image_url} onClick={this.pickFavorite} />
-              <Card.Body>
-                <Card.Text>
-                  {this.props.animal.description}
-                </Card.Text>
-              </Card.Body>
-            </Card> */}
             <Card className="text-center">
               <Card.Img variant="top" src={this.props.animal.image_url} onClick={this.pickFavorite} />
               <Card.Body>
