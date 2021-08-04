@@ -1,52 +1,42 @@
 import react from 'react';
-class SelectedBeast extends react.Component{
- 
-  function MyVerticallyCenteredModal(props) {
+import { Modal, Card, Container } from 'react-bootstrap';
+class SelectedBeast extends react.Component {
+  render() {
     return (
       <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+        show={this.props.showModal}
+        onHide={this.props.closeModal}
+        backdrop="static"
+        keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
+          <Modal.Title>{this.props.animal.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-  
-  function App() {
-    const [modalShow, setModalShow] = React.useState(false);
-  
-    return (
-      <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
-        </Button>
-  
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      </>
-    );
-  }
-  
-  render(<App />);
 
+          <Container>
+            {/* <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={this.props.animal.image_url} onClick={this.pickFavorite} />
+              <Card.Body>
+                <Card.Text>
+                  {this.props.animal.description}
+                </Card.Text>
+              </Card.Body>
+            </Card> */}
+            <Card className="text-center">
+              <Card.Img variant="top" src={this.props.animal.image_url} onClick={this.pickFavorite} />
+              <Card.Body>
+                <Card.Text>
+                {this.props.animal.description}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Container>
+
+
+        </Modal.Body>
+      </Modal>
+    )
+  }
 }
-export default SelectedBeast; 
+export default SelectedBeast;
