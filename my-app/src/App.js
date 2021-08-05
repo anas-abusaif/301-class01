@@ -4,35 +4,35 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SelectedBeast from './components/SelectedBeast';
+
 class App extends react.Component {
   constructor(props) {
     super(props)
     this.state = {
       show: false,
-      animal : {}
+      animal: {}
     }
   }
-  openModal=(data)=>{
+  openModal = (data) => {
     this.setState({
-      show:true,
-      animal:data
+      show: true,
+      animal: data
     })
   }
-  handleClose=()=>{
+  handleClose = () => {
     this.setState({
-      show:false
+      show: false
     })
   }
   render() {
     return (
       <>
         <Header />
-
         <Main renderModal={this.openModal} />
 
         <Footer />
 
-        <SelectedBeast animal={this.state.animal} showModal={this.state.show} closeModal={this.handleClose}/>
+        <SelectedBeast animal={this.state.animal} showModal={this.state.show} closeModal={this.handleClose} />
       </>
     )
   }
